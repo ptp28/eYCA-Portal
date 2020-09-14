@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title> New Orientation </title>
+    </head>
+    <body>
+        <p> Schedule an Orientation </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <label>About :</label>
+                <input type="text" name="about">
+            </div>
+            <div>
+                <label>Date :</label>
+                <input type="date" name="date">
+            </div>
+            <div>
+                <label> Time :- </label>
+                <div>
+                    <label>From :</label>
+                    <input type="time" name="time_from">
+                </div>
+                <div>
+                    <label>Till :</label>
+                    <input type="time" name="time_till">
+                </div>
+            </div>
+            <div>
+                <label>Meeting type :</label>
+                <select name="meeting_type">
+                    <option value="online"> Online </option>
+                    <option value="online"> Offline </option>
+                </select>
+            </div>
+            <div>
+                <label>Number of Participants :</label>
+                <input type="number" name="num_participants">
+            </div>
+            <div>
+                <label> In-house participants or outreach :</label>
+                <input type="radio" name="outreach"> In-house
+                <input type="radio" name="outreach"> Outreach
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </body>
+</html>
