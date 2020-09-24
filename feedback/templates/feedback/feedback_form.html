@@ -1,55 +1,125 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orientation Feedback</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
-<p> Feedback </p>
-<form action="" method="post">
-    <div>
-        <label>Orientation :</label>
-        <select name="orientation">
-            <option>O_01</option>
-            <option>O_02</option>
-        </select>
+
+<body class="bg-white">
+<div class="w-full flex flex-wrap">
+    <div class="w-full flex flex-col">
+        <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+            <a href="/">
+                <img height="40" width="40" src="{% static 'images/logo.png' %}" alt="">
+            </a>
+        </div>
+        <div class="py-24">
+            <div class="w-full p-8">
+                <div
+                        class="flex bg-gray-300 rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl items-center justify-center px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-md w-full">
+                        <div>
+                            <img class="mx-auto h-24 w-auto" src="{% static 'images/avatar.png' %}" alt="Workflow">
+                            <h2 class="mt-2 text-center text-3xl leading-9 font-extrabold text-gray-900">
+                                Orientation Feedback
+                            </h2>
+                        </div>
+                        <form class="mt-8" action="#" method="POST">
+                            <input type="hidden" name="remember" value="true">
+                            <div class="rounded-md shadow-sm">
+                                <div>
+                                    <input aria-label="Name" name="name" type="text" required
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="Full Name">
+                                </div>
+                                <br>
+                                <div>
+                                    <label><b> Are you Student/Faculty: </b></label>
+                                    <br>
+                                    <input aria-label="Participant Type" name="participant_type" type="radio" checked
+                                           value="Student"
+                                           required>
+                                    Student
+                                    <input aria-label="Participant Type" name="participant_type" type="radio"
+                                           value="Faculty"
+                                           required>
+                                    Faculty
+                                </div>
+                                <br>
+                                <div>
+                                    <input aria-label="College" name="college" type="text" required
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="College">
+                                </div>
+                                <br>
+                                <div>
+                                    <input aria-label="Degree" name="degree" type="text" required
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="Degree">
+                                </div>
+                                <br>
+                                <div>
+                                    <input aria-label="Department" name="department" type="text" required
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="Department">
+                                </div>
+                                <br>
+                                <div>
+                                    <select aria-label="Year" name="year"
+                                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                            required>
+                                        <option disabled> Current year of study </option>
+                                        <option value="1">First Year</option>
+                                        <option value="2">Second Year</option>
+                                        <option value="3">Third Year</option>
+                                        <option value="4">Fourth Year</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div>
+                                    <label><b> Ratings : </b></label>
+                                    0
+                                    <input type="range" min="0" max="5" name="orientation_rating">
+                                    5
+                                </div>
+                                <br>
+                                <div>
+                                    <input aria-label="Email address" name="email" type="email"
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="Email Address (Optional)">
+                                </div>
+                                <br>
+                                <div>
+                                    <input aria-label="Comments" name="other_comments" type="textarea"
+                                           class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                           placeholder="Any additional comments (Optional)">
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <button type="submit"
+                                        class="mb-10 group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+{#                      <svg#}
+{#                              class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150"#}
+{#                              fill="currentColor" viewBox="0 0 20 20">#}
+{#                        <path fill-rule="evenodd"#}
+{#                              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"#}
+{#                              clip-rule="evenodd"/>#}
+{#                      </svg>#}
+                    </span>
+                                    Submit Feedback
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Name :</label>
-        <input type="text" name="name">
-    </div>
-    <div>
-        <label>Type :</label>
-        <input type="radio" name="participant_type"> Student
-        <input type="radio" name="participant_type"> Teacher
-    </div>
-    <div>
-        <label>Course :</label>
-        <input type="text" name="course">
-    </div>
-    <div>
-        <label>Specialisation :</label>
-        <input type="text" name="specialisation">
-    </div>
-    <div>
-        <label>Year :</label>
-        <input type="number" name="year">
-    </div>
-    <div>
-        <label>Email ID :</label>
-        <input type="email" name="email">
-    </div>
-    <div>
-        <label>Ratings :</label>
-        <input type="range" min="0" max="5" name="ratings">
-    </div>
-    <div>
-        <label>Other comments :</label>
-        <input type="textarea" name="comments">
-    </div>
-    <div>
-        <input type="submit" value="submit">
-    </div>
-</form>
+</div>
 </body>
 </html>

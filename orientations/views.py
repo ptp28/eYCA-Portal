@@ -17,3 +17,6 @@ def schedule_orientation(request):
         outreach = request.POST['outreach']
         return HttpResponse("Got response")
 
+
+def orientation_report(request):
+    pass

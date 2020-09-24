@@ -10,6 +10,9 @@ class Orientation(models.Model):
     outreach = models.BooleanField(default=False)
     status = models.CharField(max_length=50, default="Scheduled")
 
+    def __str__(self):
+        return str(self.date) + " - " + "TO ADD CA NAME TO STRING"
+
 
 class OrientationReport(models.Model):
     orientation = models.ForeignKey(Orientation, on_delete=models.CASCADE)
