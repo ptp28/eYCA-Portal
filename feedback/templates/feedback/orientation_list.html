@@ -1,0 +1,63 @@
+{% extends 'eyca/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/cards_styles.css' %}">
+{% endblock %}
+
+
+{% block page %}
+
+    <br>
+    <br>
+    <h1><b> TODAY's ORIENTATIONS </b></h1>
+    <h2> {{ date_today }} </h2>
+    <br>
+    <div class="row">
+
+        {% for orientation in orientations_today %}
+            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
+            <div class="column">
+                <div class="card">
+                    <div class="container">
+                        <h2> CA NAME </h2>
+                        <p class="title">{{ orientation.time }}</p>
+                        <p>{{ orientation.meeting_type }}</p>
+                        <p>College</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+{#    TODO: CLEAN UP CODE, USE ONE FOR LOOP TO PRINT BOTH DIVS#}
+    <br>
+    <br>
+    <h1><b> YESTERDAY's ORIENTATIONS </b></h1>
+    <h2> {{ date_yesterday }} </h2>
+    <br>
+    <div class="row">
+
+        {% for orientation in orientations_yesterday %}
+            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
+            <div class="column">
+                <div class="card">
+                    <div class="container">
+                        <h2> CA NAME </h2>
+                        <p class="title">{{ orientation.time }}</p>
+                        <p>{{ orientation.meeting_type }}</p>
+                        <p>College</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}

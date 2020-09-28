@@ -23,6 +23,8 @@ urlpatterns = [
     path('orientations/', include('orientations.urls')),
     path('feedback/', include('feedback.urls')),
     path('', views.home_page),
-    path('login/', views.login),
-    path('register/', views.register)
+    path('login/', views.login_user, name='login'),
+    path('register/', views.register),
+    path('teampage/', views.teampage),
+    path('dashboard/', views.dashboard)
 ]

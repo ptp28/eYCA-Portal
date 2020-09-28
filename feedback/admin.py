@@ -1,4 +1,8 @@
 from django.contrib import admin
 from feedback.models import Feedback
 
-admin.site.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'orientation_rating')
+
+
+admin.site.register(Feedback, FeedbackAdmin)

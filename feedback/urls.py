@@ -6,5 +6,7 @@ app_name = 'feedback'
 
 
 urlpatterns = [
-    path('', views.feedback_submit, name="feedback_submit"),
+    path('', views.orientations_list, name="orientations_list"),
+    path('<int:orientation_id>/', views.feedback_submit, name="feedback_submit"),
+
 ]
