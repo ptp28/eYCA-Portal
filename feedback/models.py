@@ -2,7 +2,7 @@ from django.db import models
 from orientations.models import Orientation
 
 class Feedback(models.Model):
-    # orientation = models.ForeignKey(Orientation, on_delete=models.CASCADE)
+    orientation = models.ForeignKey(Orientation, on_delete=models.CASCADE)
     name = models.CharField(max_length=500, blank=True)
     participant_type = models.CharField(max_length=10)
     college = models.CharField(max_length=1000)

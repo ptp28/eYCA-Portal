@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from feedback.forms import FeedbackForm
 from datetime import date, timedelta
 from django.views.decorators.csrf import csrf_exempt
@@ -33,9 +33,11 @@ def feedback_submit(request, orientation_id):
         form = FeedbackForm(request.POST or None)
         if form.is_valid():
             feedback = form.save(commit=False)
+            feedback.orientation = get_object_or_404(Orientation, pk=orientation_id)
             feedback.email = request.POST['email']
             feedback.other_comments = request.POST['other_comments']
             feedback.save()
-
-        return HttpResponse("Got response")
+            return HttpResponse("Got response")
+        else:
+            return HttpResponse("Got no response")
 

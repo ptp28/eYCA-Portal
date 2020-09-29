@@ -41,12 +41,12 @@
                                     <br>
                                     <div>
                                         <label class="block text-black text-sm font-bold mb-2"
-                                            for="project description">Are You Student or Faculty?</label>
-                                        <input type="radio" class="form-radio" name="hardware" value="yes" checked
+                                            for="participant_type">Are You Student or Faculty?</label>
+                                        <input type="radio" class="form-radio" name="participant_type" value="Student" checked
                                             required />
                                         <span class="ml-2">Student</span>
                                         &nbsp;
-                                        <input type="radio" class="form-radio" name="hardware" value="no" checked />
+                                        <input type="radio" class="form-radio" name="participant_type" value="Faculty" />
                                         <span class="ml-2">Faculty</span>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                     <label class="block text-black text-sm font-bold mb-2" for="project description">How
                                         was the Orientation?</label>
                                     <div class="d-flex my-4">
-                                        <input id="slider11" class="border-0" type="range" min="0" max="5" />
+                                        <input name="orientation_rating" id="slider11" class="border-0" type="range" min="0" max="5" />
                                         <span class="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
                                     </div>
                                     <br>
