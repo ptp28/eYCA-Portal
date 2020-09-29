@@ -63,6 +63,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR+"/eyca", 'templates'),
             os.path.join(BASE_DIR + "/orientations", 'templates'),
+            os.path.join(BASE_DIR + "/feedback", 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
