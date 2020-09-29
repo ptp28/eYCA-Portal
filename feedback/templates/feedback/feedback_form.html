@@ -131,6 +131,14 @@
             $valueSpan.html($value.val());
         });
     });
+
+        yearSelect = document.getElementsByName('year')[0];
+        yearSelect.addEventListener('change', changeTextColor);
+
+        function changeTextColor() {
+            yearSelect.classList.remove('text-gray-500');
+            yearSelect.classList.add('text-gray-900');
+        }
 </script>
 
 {% endblock %}
