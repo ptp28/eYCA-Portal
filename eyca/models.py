@@ -12,6 +12,7 @@ class Profile(models.Model):
     year = models.IntegerField()
     dob = models.IntegerField()
     phone_number = models.IntegerField()
+    id_card_pic = models.FileField()
     eyic_flag = models.BooleanField(default=False)
     eyrc_flag = models.BooleanField(default=False)
     eysip_flag = models.BooleanField(default=False)

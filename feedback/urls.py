@@ -2,8 +2,9 @@
 """
 from django.urls import path
 from . import views
-app_name = 'feedback'
 
+
+app_name = 'feedback'
 
 urlpatterns = [
     path('', views.orientations_list, name="orientations_list"),

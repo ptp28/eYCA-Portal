@@ -6,30 +6,58 @@
 {% endblock %}
 
 
-
 {% block page %}
-
-    <h2 class="mt-2 text-center text-3xl leading-9 font-extrabold text-gray-900">Orientation List</h2>
     <br>
-
+    <br>
+    <h1 class="mt-2 text-left text-4xl leading-9 font-extrabold text-gray-900">Today's Orientations</h1>
+    <br>
+    <h2 class="mt-2 text-left text-3xl leading-9 font-bold text-gray-900"> {{ date_today }} </h2>
+    <br>
     <div class="row">
 
-        {% for user in user_list %}
-        <!--Card-->
-        <div class="ml-10 max-w-sm rounded overflow-hidden shadow-lg">
-            <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}" alt="Sunset in the mountains">
+        {% for orientation in orientations_today %}
+            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
+            <div class="ml-10 max-w-sm rounded overflow-hidden shadow-lg">
             <div class="px-6 py-4 bg-gray-200">
-              <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
-              <p class="text-gray-700 text-base">
-                {{ user.get_username }}
-              </p>
-              <p> {{ user.email }} </p>
+                <div class="font-bold text-xl mb-2"> PARTH PARIKH </div>
+              <div class="font-bold text-xl mb-2">{{ orientation.time }}</div>
+                <div class="font-bold text-xl mb-2">{{ orientation.meeting_type }}</div>
+                <div class="font-bold text-xl mb-2">College</div>
+
             </div>
           </div>
+            </a>
+
         {% endfor %}
 
+    </div>
+
+{#    TODO: CLEAN UP CODE, USE ONE FOR LOOP TO PRINT BOTH DIVS#}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="mt-2 text-left text-4xl leading-9 font-extrabold text-gray-900">Yesterday's Orientations</h1>
+    <br>
+    <h2 class="mt-2 text-left text-3xl leading-9 font-bold text-gray-900"> {{ date_yesterday }} </h2>
+    <br>
+    <div class="row">
+
+        {% for orientation in orientations_yesterday %}
+            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
+            <div class="ml-10 max-w-sm rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-4 bg-gray-200">
+              <div class="font-bold text-xl mb-2">{{ orientation.time }}</div>
+                <div class="font-bold text-xl mb-2">{{ orientation.meeting_type }}</div>
+                <div class="font-bold text-xl mb-2">College</div>
+
+            </div>
+          </div>
+            </a>
+
+        {% endfor %}
 
     </div>
 
 {% endblock %}
-
