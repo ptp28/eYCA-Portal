@@ -6,58 +6,30 @@
 {% endblock %}
 
 
+
 {% block page %}
 
+    <h2 class="mt-2 text-center text-3xl leading-9 font-extrabold text-gray-900">Orientation List</h2>
     <br>
-    <br>
-    <h1><b> TODAY's ORIENTATIONS </b></h1>
-    <h2> {{ date_today }} </h2>
-    <br>
+
     <div class="row">
 
-        {% for orientation in orientations_today %}
-            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
-            <div class="column">
-                <div class="card">
-                    <div class="container">
-                        <h2> CA NAME </h2>
-                        <p class="title">{{ orientation.time }}</p>
-                        <p>{{ orientation.meeting_type }}</p>
-                        <p>College</p>
-                    </div>
-                </div>
+        {% for user in user_list %}
+        <!--Card-->
+        <div class="ml-10 max-w-sm rounded overflow-hidden shadow-lg">
+            <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}" alt="Sunset in the mountains">
+            <div class="px-6 py-4 bg-gray-200">
+              <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
+              <p class="text-gray-700 text-base">
+                {{ user.get_username }}
+              </p>
+              <p> {{ user.email }} </p>
             </div>
-            </a>
-
-        {% endfor %}
-
-    </div>
-
-{#    TODO: CLEAN UP CODE, USE ONE FOR LOOP TO PRINT BOTH DIVS#}
-    <br>
-    <br>
-    <h1><b> YESTERDAY's ORIENTATIONS </b></h1>
-    <h2> {{ date_yesterday }} </h2>
-    <br>
-    <div class="row">
-
-        {% for orientation in orientations_yesterday %}
-            <a href="{% url 'feedback:feedback_submit' orientation.id %}">
-            <div class="column">
-                <div class="card">
-                    <div class="container">
-                        <h2> CA NAME </h2>
-                        <p class="title">{{ orientation.time }}</p>
-                        <p>{{ orientation.meeting_type }}</p>
-                        <p>College</p>
-                    </div>
-                </div>
-            </div>
-            </a>
-
+          </div>
         {% endfor %}
 
 
     </div>
 
 {% endblock %}
+
