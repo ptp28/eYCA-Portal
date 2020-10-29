@@ -12,25 +12,29 @@
     <br>
 
     <div class="row">
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
-        {% for user in user_list %}
+                {% for user in user_list %}
 
 
-        
-        <div class="ml-10 max-w-sm rounded overflow-hidden shadow-lg">
-            <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}" alt="Sunset in the mountains">
-            <div class="px-6 py-4 bg-gray-200">
-              <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
-              <p class="text-gray-700 text-base">
-                {{ user.get_username }}
-              </p>
-              <p> {{ user.email }} </p>
+                    <div class="mb-10 ml-10 max-w-sm rounded overflow-hidden shadow-lg">
+                        <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}"
+                             alt="Sunset in the mountains">
+                        <div class="px-6 py-4 bg-gray-200">
+                            <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
+                            <p class="text-gray-700 text-base">
+                                {{ user.get_username }}
+                            </p>
+                            <p> {{ user.email }} </p>
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+
             </div>
-          </div>
-
-        {% endfor %}
-
-
+        </div>
     </div>
 
 {% endblock %}

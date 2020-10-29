@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'orientations.apps.OrientationsConfig',
     'feedback.apps.FeedbackConfig',
     'eyca.apps.EycaConfig',
+    'registration.apps.RegistrationsConfig',
     'tailwind',
     'theme'
 ]
@@ -79,6 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eyca.wsgi.application'
 
+SITE_ID = 2
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -90,10 +93,12 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.AllowAllUsersModelBackend'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -109,6 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ['TEST_MAIL_USER']
+EMAIL_HOST_PASSWORD = os.environ['TEST_MAIL_PASSWORD']
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
