@@ -121,8 +121,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-#EMAIL_HOST_USER = os.environ['TEST_MAIL_USER']
-#EMAIL_HOST_PASSWORD = os.environ['TEST_MAIL_PASSWORD']
+EMAIL_HOST_USER = os.environ['TEST_MAIL_USER']
+EMAIL_HOST_PASSWORD = os.environ['TEST_MAIL_PASSWORD']
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

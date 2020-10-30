@@ -41,7 +41,7 @@ def register(request):
         new_user_registration.id_card_pic = id_card
         new_user_registration.save()
 
-        return HttpResponse("Registered")
+        return render(request, 'registration/registration_submitted.html')
 
 
 def generate_username(college_name, name):
