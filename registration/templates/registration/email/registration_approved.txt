@@ -1,0 +1,15 @@
+Dear {{ name }},
+It gives us immense pleasure to share with you that you have been selected to be an e-Yantra Campus Ambassador (eYCA).
+
+You will need to activate your account
+
+Username: {{ username }}
+To set a new password click on the link below and set a new password
+Link to set Password: {{ set_password_link }}
+
+For any queries, you can write to us at "mailto:resources@e-yantra.org" or call us @ 022-2576-4986
+
+
+
+Best Wishes,
+e-Yantra Team

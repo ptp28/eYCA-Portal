@@ -1,0 +1,12 @@
+ Dear {{ name }},
+ Greetings from e-Yantra!
+
+Thank you for registering to be a part of the e-Yantra Campus Ambassador Program (eYCA).
+We have many great things planned ahead.
+Your provided details will now be verified and you may be contacted to confirm your participation into the eYCA program.
+When your application is approved, we will send you an email detailing the further induction procedure.
+
+
+
+With best regards,
+e-Yantra Team

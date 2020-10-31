@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'eyca.apps.EycaConfig',
     'registration.apps.RegistrationsConfig',
     'tailwind',
-    'theme'
+    'theme',
+    'mailer'
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Email configuration
+# EMAIL_BACKEND = 'mailer.backend.DbBackend'
+# MAILER_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -142,3 +146,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

@@ -1,0 +1,37 @@
+{% load static %}
+
+<div style="width:700px;text-align:center;background-color:#E5E5E6;padding-left:50px;padding-right:50px;padding-top:20px;font-family: Verdana, Geneva, sans-serif;font-size:14px;">
+	<div style="width:700px;test-align:center;background-color:#ffffff;background-image: url( {%  static 'images/contact_placeholder.jpg' %} );">
+		<div style="border-bottom:1px solid #D1D1D3;">
+			<img src="http://content.e-yantra.org/img/emails/header1.jpg" alt="Header" style="width:700px;"/>
+		</div>
+		<br/>
+		<div style="text-align:justify;padding:13px;">
+			<div>
+				
+				<div style="float:left;margin-bottom:20px;">
+					Dear {{ name }},<br/>
+					<br/>
+					Greetings from e-Yantra!<br/>
+				</div>
+			</div>
+			<div style="float:left">
+			It gives us immense pleasure to share with you that you have been selected to be an e-Yantra Campus Ambassador (eYCA).
+			<br/>
+				You will need to activate your account - <br/><br/>
+				Username: {{ username }}<br/>
+                To set a new password click on the link below and set a new password <br>
+				Link to set Password: {{ set_password_link }}<br/>
+				<br/>
+				<br/>For any queries, you can write to us at <a href="mailto:resources@e-yantra.org">resources@e-yantra.org</a> or call us@ 022-2576-4986.<br/>
+				<br/>
+				Best Wishes,<br/>
+				e-Yantra Team<br/>
+			</div>
+		</div>
+		<br/>
+		<div style="border-top:1px solid #D1D1D3;clear:both;">
+			<img src="http://content.e-yantra.org/img/emails/footer1.jpg" alt="Footer" style="width:700px;"/>
+		</div>
+	</div>
+</div>

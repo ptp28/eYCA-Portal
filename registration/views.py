@@ -1,11 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from registration.models import Registration
-from django.conf import settings
-from django.core.mail import mail_admins, mail_managers, send_mail
 from django.contrib.auth.models import User
-from django.template.loader import render_to_string
 from django.utils import timezone
 
 
@@ -46,12 +42,14 @@ def register(request):
 
 def generate_username(college_name, name):
     college_name = college_name.upper()
+    college_name = college_name.strip()
     college_name = college_name.split(" ")
     college_name_initials = ""
     for word in college_name:
         college_name_initials += college_name_initials.join(word[0])
 
     name = name.upper()
+    name = name.strip()
     name = name.split(" ")
     name_initials = ""
     for word in name:
