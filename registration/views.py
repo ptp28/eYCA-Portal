@@ -18,8 +18,8 @@ def register(request):
         year = request.POST['year']
         dob = request.POST['dob']
         contact_number = request.POST['contact_number']
-        profile_pic = request.POST['profile_pic']
-        id_card = request.POST['id_card']
+        profile_pic = request.FILES['profile_pic']
+        id_card = request.FILES['id_card']
 
         username = generate_username(college, name)
 

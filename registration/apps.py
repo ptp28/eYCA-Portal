@@ -6,3 +6,4 @@ class RegistrationsConfig(AppConfig):
 
     def ready(self):
         import registration.signals
+
