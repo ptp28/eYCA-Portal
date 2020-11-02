@@ -13,24 +13,28 @@
 
     <div class="row">
         <div class="container my-12 mx-auto px-4 md:px-12">
-            <div class="flex flex-wrap -mx-1 lg:-mx-4">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4 items-stretch ">
 
                 {% for user in user_list %}
-                    <div class="mb-10 ml-10 max-w-sm rounded overflow-hidden shadow-lg">
-                         {% if user.profile.profile_pic %}
-                             <img class="w-full" src="{{ user.profile.profile_pic.url }}" alt="{{ user.get_full_name }}">
-                        {% else %}
-                             <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}" alt="{{ user.get_full_name }}">
-                        {% endif %}
+                    <div class="w-full md:w-1/2 lg:w-1/5 mt-10 lg:ml-10 max-w-sm rounded overflow-hidden bg-gray-200 shadow-lg">
 
+                            {% if user.profile.profile_pic %}
+                                <img class="w-full" src="{{ user.profile.profile_pic.url }}"
+                                     alt="{{ user.get_full_name }}">
+                            {% else %}
+                                <img class="w-full" src="{% static 'images/contact_placeholder.jpg' %}"
+                                     alt="{{ user.get_full_name }}">
+                            {% endif %}
 
-                        <div class="px-6 py-4 bg-gray-200">
-                            <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
-                            <p class="text-gray-700 text-base">
-                                {{ user.get_username }}
-                            </p>
-                            <p> {{ user.email }} </p>
-                            <p> {{ user.profile.college }}</p>
+                        <div>
+                            <div class="px-6 py-4 bg-gray-200">
+                                <div class="font-bold text-xl mb-2">{{ user.get_full_name }}</div>
+                                <p class="font-bold text-gray-700 text-base">
+                                    {{ user.get_username }}
+                                </p>
+                                <p class="font-bold overflow-hidden"> {{ user.profile.college }}</p>
+                                <p class="text-gray-700 text-base"> {{ user.email }} </p>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

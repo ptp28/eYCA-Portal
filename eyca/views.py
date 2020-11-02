@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
+import os
 
 
 def home_page(request):
@@ -42,7 +43,8 @@ def activate_account(request):
         update_session_auth_hash(request, request.user)
         return redirect('dashboard')
 
-@login_required()
+
+@login_required
 def dashboard(request):
     # return render(request, 'eyca/dashboard.html')
     return render(request, 'eyca/dashboard_under_construction.html', context={'user': request.user})
@@ -50,7 +52,16 @@ def dashboard(request):
 
 def teampage(request):
     user_list = User.objects.all()
-    return render(request, 'eyca/teampage.html', {'user_list' : user_list})
+
+    for user in user_list:
+        try:
+            if user.profile:
+                if not os.path.isfile(user.profile.profile_pic.path):
+                    user.profile.profile_pic = None
+        except:
+            pass
+
+    return render(request, 'eyca/teampage.html', {'user_list': user_list})
 
 
 def logout_user(request):
