@@ -1,8 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 
 from .forms import OrientationForm
 
+
+@login_required
 def schedule_orientation(request):
     if request.method == "GET":
         return render(request, "orientations/orientation_add_form.html")
@@ -18,5 +21,6 @@ def schedule_orientation(request):
             return HttpResponse("Got no response")
 
 
+@login_required
 def orientation_report(request):
     pass

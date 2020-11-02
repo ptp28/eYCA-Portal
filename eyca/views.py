@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -28,8 +28,6 @@ def login_user(request):
                 return HttpResponse('ACCOUNT DISABLED')
         else:
             return HttpResponse('NO ACCOUNT')
-            # return render(request, 'music/login.html', {'error_message': 'Invalid login'})
-        # return render(request, 'eyca/login.html')
 
 
 @login_required
@@ -44,10 +42,18 @@ def activate_account(request):
         update_session_auth_hash(request, request.user)
         return redirect('dashboard')
 
+@login_required()
 def dashboard(request):
-    return render(request, 'eyca/dashboard.html')
+    # return render(request, 'eyca/dashboard.html')
+    return render(request, 'eyca/dashboard_under_construction.html', context={'user': request.user})
 
 
 def teampage(request):
     user_list = User.objects.all()
     return render(request, 'eyca/teampage.html', {'user_list' : user_list})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home_page')
+

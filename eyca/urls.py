@@ -26,10 +26,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('orientations/', include('orientations.urls')),
     path('feedback/', include('feedback.urls')),
-    path('', views.home_page),
+    path('', views.home_page, name='home_page'),
     path('login/', views.login_user, name='login'),
+    path('logout/', views.logout_user, name='logout'),
     path('register/', include('registration.urls')),
-    path('teampage/', views.teampage),
+    path('teampage/', views.teampage, name='teampage'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('activate_account/', views.activate_account, name="activate_account"),
 

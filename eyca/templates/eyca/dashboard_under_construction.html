@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+      {% block title %}
+            Dashboard
+      {% endblock  %}
+  </title>
+<link rel="shortcut icon" type="image/png" href="{%  static 'images/favicon.ico' %}"/>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="bg-white leading-normal tracking-normal gradient">
+<nav id="header" class="bg-gray-900">
+	<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+		<div class="pl-4 flex">
+			<a href="/">
+				<img class="h-10" src="{% static 'images/logo.png' %}" alt="" srcset="">
+			</a>
+		</div>
+		<div class="block lg:hidden pr-4">
+			<button id="nav-toggle" class="flex items-center p-1 bg-white hover:text-gray-900">
+				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+			</button>
+		</div>
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				<li class="mr-3">
+					<a class="inline-block text-white no-underline py-2 px-4" href="{% url 'logout' %}">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+{% block page %}
+
+    <div class="bg-white">
+  <div class="w-full flex flex-wrap">
+    <div class="w-full flex flex-col">
+      <div class="py-24">
+        <div class="w-full p-8">
+            <div
+            class="flex bg-gray-200 rounded-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl items-center justify-center px-4 sm:px-6 lg:px-8 mt-10">
+              <div class="max-w-md w-full mt-10">
+              <div>
+                <img class="mx-auto h-24 w-auto" src="{% static 'images/under_construction.svg' %}" alt="Workflow">
+                <h2 class="mt-2 text-center text-3xl leading-9 font-extrabold text-gray-900">
+                  Dashboard Under Construction
+                </h2>
+                <br>
+                <p class="text-lg text-gray-600 text-center">
+                    Hello {{ user.get_full_name }},
+                    <br>
+                    Happy to see you here. The eYCA portal is currently under development and therefore we have decided to the curtains closed on the dashboard until the desired functionality and usability is achieved. If you need any help or wish to connect with the e-Yantra team or fellow campus ambassadors, you can still continue to do so on our discord server.
+                </p>
+                  <div class="mt-6">
+                  <div class="text-md leading-5 text-center">
+                                            <a href="https://discord.gg/g6gVhdCsm9"
+                                               class="font-medium text-indigo-600 hover:text-indigo-500 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                                                eYCA Discord Server
+                                            </a>
+                                        </div>
+                      <br>
+                </div>
+                  <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+</body>
+</html>
+
+<script>
+	document.getElementById('nav-toggle').onclick = function(){
+			document.getElementById("nav-content").classList.toggle("hidden");
+		}
+</script>
